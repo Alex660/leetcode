@@ -1,4 +1,6 @@
 # 设计循环双端队列（中等）
+# 题目描述
+![截屏2019-10-20上午9.07.59.png](https://pic.leetcode-cn.com/683e537851fe036e2e283738c79622b7b21e92b45808c90f619194595571b202-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.07.59.png)
 # 题目地址
 <https://leetcode-cn.com/problems/design-circular-deque/solution/>
 # 循环队列图示

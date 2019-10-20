@@ -1,4 +1,6 @@
 # 寻找两个有序数组的中位数（困难）
+# 题目描述
+![截屏2019-10-20上午9.32.41.png](https://pic.leetcode-cn.com/65c5838a814a6cdbdb987c28c72e200bc289e52dff1a84ad7071cb7173309a61-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.32.41.png)
 # 题目地址
 <https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/>
 #### 解法：

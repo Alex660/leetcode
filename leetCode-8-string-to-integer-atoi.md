@@ -1,4 +1,8 @@
-# 字符串转换整数（atoi）
+# 字符串转换整数（atoi）（中等）
+# 题目描述
+![截屏2019-10-20上午9.27.24.png](https://pic.leetcode-cn.com/d7249868e23a50f913b6ee42cb035912fd79ce6d18b6b68df908420163b6519b-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.27.24.png)
+![截屏2019-10-20上午9.27.36.png](https://pic.leetcode-cn.com/9b1601eceb92f20772d91d9532ecc05175520877fe0793665604cbb09512a569-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.27.36.png)
+![截屏2019-10-20上午9.27.43.png](https://pic.leetcode-cn.com/cd279f82f086b6e972af8d5bc7ec8fef0bd9954ed3f2f774f8f78e7581ecc852-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.27.43.png)
 # 题目地址
 <https://leetcode-cn.com/problems/string-to-integer-atoi/solution/>
 #### 解法：正则

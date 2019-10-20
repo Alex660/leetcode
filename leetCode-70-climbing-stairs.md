@@ -1,4 +1,6 @@
 # 爬楼梯（简单）
+# 题目描述
+![截屏2019-10-20上午9.16.53.png](https://pic.leetcode-cn.com/2baa6fa9ccb8cd29e761f3995cb201be418f63749c862f409a28e4b1273b5830-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.16.53.png)
 # 题目地址
 <https://leetcode-cn.com/problems/climbing-stairs/solution/>
 # 解法一

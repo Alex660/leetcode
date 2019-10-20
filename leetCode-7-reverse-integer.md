@@ -1,4 +1,6 @@
 # 整数反转(简单)
+# 题目描述
+![截屏2019-10-20上午9.29.20.png](https://pic.leetcode-cn.com/3680ad7e18447f982033da6cc280e19e39d3be0a82c9b6e4078e6b71ba274dc0-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.29.20.png)
 # 题目地址
 <https://leetcode-cn.com/problems/reverse-integer/solution/>
 

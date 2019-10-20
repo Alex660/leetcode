@@ -1,4 +1,6 @@
 # 回文数（简单）
+# 题目描述
+![截屏2019-10-20上午9.26.07.png](https://pic.leetcode-cn.com/9828c3179a95207ffd8575dce6b97f26071bea0243bc2e451510a1f90afb8024-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.26.07.png)
 # 题目地址
 <https://leetcode-cn.com/problems/palindrome-number/solution/>
 #### 解法一：字符串反转法

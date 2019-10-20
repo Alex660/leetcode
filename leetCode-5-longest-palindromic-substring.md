@@ -1,4 +1,6 @@
 # 最长回文子串（中等）
+# 题目描述
+![截屏2019-10-20上午9.31.37.png](https://pic.leetcode-cn.com/c7197f29f856fe74c25a1cc1536097994ef981a0f8329b487256b55225c1a7c8-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.31.37.png)
 # 题目地址
 <https://leetcode-cn.com/problems/longest-palindromic-substring/solution/>
 # 解法三

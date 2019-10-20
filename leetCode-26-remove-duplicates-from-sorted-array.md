@@ -1,4 +1,6 @@
 # 删除排序数组中的重复项（简单）
+# 题目描述
+![截屏2019-10-20上午9.19.53.png](https://pic.leetcode-cn.com/bf47c8fb5e4cce6398ac99750c2a5457a0fc2f46806284e13af23ac29308933b-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.19.53.png)
 # 题目地址
 <https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/solution/>
 # 解法一

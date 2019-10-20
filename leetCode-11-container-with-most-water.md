@@ -1,4 +1,6 @@
 # 盛最多水的容器（中等）
+# 题目描述
+![截屏2019-10-20上午9.23.19.png](https://pic.leetcode-cn.com/d22dd9d31e3e426aebd3452cbd95ef842e4adcb1727de4b6ef7e5a45c5cf98c2-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.23.19.png)
 # 题目地址
 <https://leetcode-cn.com/problems/container-with-most-water/solution/>
 #### 解法一：暴力枚举

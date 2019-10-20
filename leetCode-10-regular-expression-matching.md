@@ -1,4 +1,8 @@
 # 正则表达式匹配（困难）
+# 题目描述
+![截屏2019-10-20上午9.24.16.png](https://pic.leetcode-cn.com/4329cfa5d3973bbc2416415f4c9db5c7cf5f6777300e6d93a9eb8dd0b0674977-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.24.16.png)
+![截屏2019-10-20上午9.24.28.png](https://pic.leetcode-cn.com/3110b8c4a41a6282dcadd2b4447a2de5113166a97cd9d766a10484bc1c189132-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.24.28.png)
+![截屏2019-10-20上午9.24.34.png](https://pic.leetcode-cn.com/5862835f47b554f7bd9a6759037b1707481caf0c7d64105f45a8e77012f179b8-%E6%88%AA%E5%B1%8F2019-10-20%E4%B8%8A%E5%8D%889.24.34.png)
 # 题目地址
 <https://leetcode-cn.com/problems/regular-expression-matching/solution/>
 # 解法二
