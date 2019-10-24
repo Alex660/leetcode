@@ -1,6 +1,8 @@
 # 二叉树的中序遍历（中等）
 # 题目描述
 ![截屏2019-10-22上午9.35.37.png](https://pic.leetcode-cn.com/f71cfda4727039d147e65f213eab2346213fc38cb3393f33bf10da016c93171b-%E6%88%AA%E5%B1%8F2019-10-22%E4%B8%8A%E5%8D%889.35.37.png)
+# 题目地址
+<https://leetcode-cn.com/problems/binary-tree-inorder-traversal/>
 #### 解法一：递归
 + 时间复杂度：O(n)
   + 递归函数：T(n) = 2*T(n/2)+1
@@ -49,7 +51,38 @@ var inorderTraversal = function(root) {
     return result;
 };
 ```
-#### 解法二：基于栈的遍历
+#### 解法二：解法一的浓缩版
++ 解法一分析
++ 中序 == 升序排列
++ 上代码
+```javascript
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function(root) {
+    var result = [];
+    function pushRoot(root){
+        if(root == null){  
+            return true;
+        }
+        if(pushRoot(root.left)){
+            result.push(root.val);
+            return pushRoot(root.right)
+        }
+    }
+    pushRoot(root)
+    return result;
+};
+``` 
+#### 解法三：基于栈的遍历
 + 时间复杂度：O(n)
 + 空间复杂度：O(n)
 + 分析
@@ -126,5 +159,6 @@ var inorderTraversal = function(root) {
     return result;
 };
 ```
-#### 解法三：二叉线索树
-> 有点小复杂，待更，预计本周内，敬请期待，谢谢～
+#### 解法四：二叉线索树
+> 有点小复杂，待更
+
