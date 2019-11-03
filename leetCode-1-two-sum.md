@@ -74,3 +74,49 @@ var twoSum = function(nums, target) {
     }
 };
 ```
+#### 解法四：换成Object存储+"减负"
++ 数组存储换成对象{}存储，性能较快
++ 由题意可知
+  + 题目测试用例一定只会有一个答案
+  + 所以去掉一些不必要的代码直接返回拼接后的数组结果
+  + 瞅代码吧
+```javascript
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    var result = {};
+    var len = nums.length;
+    var diff = 0;
+    for(var i=0;i<len;i++){
+        diff = target - nums[i];
+        if(result.hasOwnProperty(diff)){
+            return [result[diff],i]
+        }else{
+            result[nums[i]]=i;
+        }
+    }
+};
+```
++ 或者
+```javascript
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    var result = {};
+    var len = nums.length;
+    for(var i=0;i<len;i++){
+        var diff = target - nums[i];
+        if(diff in result){
+            return [result[diff],i]
+        }else{
+            result[nums[i]]=i;
+        }
+    }
+};
+```
