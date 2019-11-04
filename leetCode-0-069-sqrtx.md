@@ -2,7 +2,7 @@
 # 题目描述
 # 题目地址
 <https://leetcode-cn.com/problems/sqrtx/submissions/>
-# 解法一：二分查找
+#### 解法一：二分查找
 + 话不多说直接上简便二分法模板，公式不多说
     + java
       ```java
@@ -65,7 +65,7 @@ var mySqrt = function(x) {
     return right;
 };
 ```
-#### 牛顿迭代法
+#### 解法二：牛顿迭代法
 + 公式：x= (x+tmp_x/x)/2
 + [戳看公式参考文献](https://www.zhihu.com/question/20690553)
 + [英文文献](https://www.beyond3d.com/content/articles/8/)
