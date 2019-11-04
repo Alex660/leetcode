@@ -57,6 +57,8 @@
             + 否则
               + high = mid  
         + 直到low==high时间，即**两边夹逼**只剩一个数组元素没有比较时，判断是否等于target，是返回low/high，否返回-1
+  + 类似题型
+    [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/solution/153-xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-de-z-4/)   
 ```javascript
 /**
  * @param {number[]} nums

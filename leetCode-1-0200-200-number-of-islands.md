@@ -148,3 +148,5 @@ var numIslands = function(grid) {
     return island;
 };
 ```
+#### 解法三：并查集
++ 待更
