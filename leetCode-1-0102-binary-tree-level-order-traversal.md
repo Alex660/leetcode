@@ -54,7 +54,7 @@ var levelOrder = function(root) {
   + DFS 特点在于深度
   + 每层的节点其深度其实一样
     + 因此每个深度作为一个映射，遍历时遇到同样深度的映射，将值添加进去
-  + 遍历晚上 返回各个深度(层次)映射的结果数组即为所求 
+  + 遍历结束，返回各个深度(层次)映射的结果数组即为所求 
 ```javascript
 /**
  * Definition for a binary tree node.

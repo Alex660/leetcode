@@ -4,7 +4,7 @@
 ![截屏2019-10-28下午3.24.35.png](https://pic.leetcode-cn.com/07cdcd43d33e83255d808d605adae1f057215166a1971b750806dd27a53a0350-%E6%88%AA%E5%B1%8F2019-10-28%E4%B8%8B%E5%8D%883.24.35.png)
 # 题目地址
 <https://leetcode-cn.com/problems/minimum-genetic-mutation/#/description>
-#### 解法一：BFS
+#### 解法一：BFS-1
 + 广度优先遍历：从左到右
 + 用队列
 + 以下所有广度代码队列均是 左边入队、右边出队
@@ -228,7 +228,60 @@ var minMutation = function(start, end, bank) {
     return -1;
 };
 ```
-#### 解法二：DFS
+#### 解法二：BFS-2
++ 图解
+![截屏2019-11-07下午4.07.34.png](https://pic.leetcode-cn.com/d9efa9bebc77949e89e023ae6fdc8a55ead84ec08cb473550dd3315446d749a4-%E6%88%AA%E5%B1%8F2019-11-07%E4%B8%8B%E5%8D%884.07.34.png)
++ [思路同127. 单词接龙-解法一](https://leetcode-cn.com/problems/word-ladder/solution/127-dan-ci-jie-long-by-alexer-660/)
+```javascript
+/**
+ * @param {string} start
+ * @param {string} end
+ * @param {string[]} bank
+ * @return {number}
+ */
+var minMutation = function(start, end, bank) {
+   if(!end || bank.indexOf(end) == -1){
+        return -1;
+    }
+	// 各个通用状态对应所有单词
+	var comboDicts = {};
+	var len = start.length;
+    for(var i = 0;i<bank.length;i++){
+		for(var r = 0;r<len;r++){
+			var newWord = bank[i].substring(0,r)+'*'+bank[i].substring(r+1,len);
+			(!comboDicts[newWord]) && (comboDicts[newWord] = []);
+			comboDicts[newWord].push(bank[i]);
+		}
+	}
+	// Queue for BFS
+	var queue = [[start,0]];
+	// visited
+	var visited = {start:true};
+	while(queue.length > 0){
+		var currNode = queue.shift();
+		var currWord = currNode[0];
+		var currLevel = currNode[1];
+		for(var i = 0;i < len;i++){
+            // 通用状态
+			var newWord = currWord.substring(0,i)+'*'+currWord.substring(i+1,len);
+            if(newWord in comboDicts){
+                var tmpWords = comboDicts[newWord];
+                for(var z = 0;z<tmpWords.length;z++){
+                    if(tmpWords[z] == end){
+                        return currLevel + 1;
+                    }
+                    if(!visited[tmpWords[z]]){
+                        visited[tmpWords[z]] = true;
+                        queue.push([tmpWords[z],currLevel+1]);
+                    }
+                }
+            }
+		}
+	}
+	return -1;
+};
+```
+#### 解法三：DFS
 + 深度优先搜索（从上到下）
   + 本题中 用于选择一种重组后的字符串则立即进行递归深入 直到符合题意 记录需要步数
   + 递归上一步
