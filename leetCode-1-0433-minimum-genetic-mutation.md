@@ -232,6 +232,9 @@ var minMutation = function(start, end, bank) {
 + 图解
 ![截屏2019-11-07下午4.07.34.png](https://pic.leetcode-cn.com/d9efa9bebc77949e89e023ae6fdc8a55ead84ec08cb473550dd3315446d749a4-%E6%88%AA%E5%B1%8F2019-11-07%E4%B8%8B%E5%8D%884.07.34.png)
 + [思路同127. 单词接龙-解法一](https://leetcode-cn.com/problems/word-ladder/solution/127-dan-ci-jie-long-by-alexer-660/)
++ 注意不同的是步数的算法
+  + 127题是第一变到下一个，当前值也算，即两步
+  + 所以本题一端的搜索节点要从0步开始 
 ```javascript
 /**
  * @param {string} start
@@ -281,7 +284,82 @@ var minMutation = function(start, end, bank) {
 	return -1;
 };
 ```
-#### 解法三：DFS
+#### 解法三：BFS-3
++ 双端BFS
++ [思路同127. 单词接龙-解法三](https://leetcode-cn.com/problems/word-ladder/solution/127-dan-ci-jie-long-by-alexer-660/)
++ 注意不同的是步数的算法
+  + 127题是第一变到下一个，当前值也算，即两步
+  + 所以本题一端的搜索节点要从0步开始 
+```javascript
+/**
+ * @param {string} start
+ * @param {string} end
+ * @param {string[]} bank
+ * @return {number}
+ */
+var minMutation = function(start, end, bank) {
+   if(!end || bank.indexOf(end) == -1){
+        return -1;
+    }
+	// 各个通用状态对应所有单词
+	var comboDicts = {};
+	var len = start.length;
+    for(var i = 0;i<bank.length;i++){
+		for(var r = 0;r<len;r++){
+			var newWord = bank[i].substring(0,r)+'*'+bank[i].substring(r+1,len);
+			(!comboDicts[newWord]) && (comboDicts[newWord] = []);
+			comboDicts[newWord].push(bank[i]);
+		}
+	}
+    
+    function visitWord(currQueue,currVisited,othersVisited){
+        var currNode = currQueue.shift();
+		var currWord = currNode[0];
+		var currLevel = currNode[1];
+		for(var i = 0;i < len;i++){
+            // 通用状态
+			var newWord = currWord.substring(0,i)+'*'+currWord.substring(i+1,len);
+            if(newWord in comboDicts){
+                var tmpWords = comboDicts[newWord];
+                for(var z = 0;z<tmpWords.length;z++){
+                    if(othersVisited[tmpWords[z]] != undefined){
+                        return currLevel + othersVisited[tmpWords[z]];
+                    }
+                    if(currVisited[tmpWords[z]] == undefined){
+                        currVisited[tmpWords[z]] = currLevel + 1;
+                        currQueue.push([tmpWords[z],currLevel+1]);
+                    }
+                }
+            }
+		}
+        return -1;
+    }
+    
+	// Queue for BFS from beginWord
+	var queueBegin = [[start,1]];
+    // Queue for BFS from endWord
+    var queueEnd  = [[end,0]];
+	// visited begin and end
+	var visitedBegin = {};
+    visitedBegin[start] = 1;
+	var visitedEnd = {};
+    visitedEnd[end] = 0;
+	while(queueBegin.length > 0 && queueEnd.length > 0){
+        // fromBegin
+        var ans = visitWord(queueBegin,visitedBegin,visitedEnd);
+        if(ans > -1){
+            return ans;
+        }
+        // formEnd
+        ans = visitWord(queueEnd,visitedEnd,visitedBegin);
+        if(ans > -1){
+            return ans;
+        }
+	}
+	return -1;
+};
+```
+#### 解法四：DFS
 + 深度优先搜索（从上到下）
   + 本题中 用于选择一种重组后的字符串则立即进行递归深入 直到符合题意 记录需要步数
   + 递归上一步
