@@ -212,3 +212,37 @@ var maxDepth = function(root) {
     return depth;
 };
 ```
+#### 解法四：递归DFS
++ 此解法类似[102. 二叉树的层次遍历-解法二](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/102-er-cha-shu-de-ceng-ci-bian-li-by-alexer-660/)
+```javascript
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function(root) {
+    if(root == null){
+        return 0;
+    }
+    var result = 1;
+    function helper(root,level){
+        if(root != null){
+            result = Math.max(result,level);
+            if(root.left != null){
+                helper(root.left,level+1);
+            }
+            if(root.right != null){
+                helper(root.right,level+1);
+            }              
+        }
+    }
+    helper(root,result);
+    return result;
+};
+```
