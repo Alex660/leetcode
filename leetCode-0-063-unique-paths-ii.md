@@ -83,7 +83,7 @@ var uniquePathsWithObstacles = function(obstacleGrid) {
     return helper(0,0);
 };
 ```
-#### 解法三：动态规划-压缩降纬
+#### 解法三：动态规划-压缩降维
 + [与62. 不同路径-解法一的优化版2一样](https://leetcode-cn.com/problems/unique-paths/solution/62-bu-tong-lu-jing-by-alexer-660/)可减少空间复杂度
 ```javascript
 /**
