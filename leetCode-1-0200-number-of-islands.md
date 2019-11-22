@@ -149,4 +149,73 @@ var numIslands = function(grid) {
 };
 ```
 #### 解法三：并查集
-+ 待更
++ 类似题型
+  + [547. 朋友圈](https://leetcode-cn.com/problems/friend-circles/solution/547-peng-you-quan-by-alexer-660/)
++ 区别
+  + 此题是m * n的矩阵，不是n * n的矩阵
+    + parent和rank数组元素命名要将i和j联系起来
+    + union查找合并的时候，也要把两个是陆地的元素传进去
+```javascript
+/**
+ * @param {character[][]} grid
+ * @return {number}
+ */
+var numIslands = function(grid) {
+    let m = grid.length;
+    if(m == 0){
+        return 0;
+    }
+    let n = grid[0].length;
+    let count = 0;
+    let parent = [];
+    let rank = [];
+
+
+    let find = (p) => {
+        while(p != parent[p]){
+            parent[p] = parent[parent[p]];
+            p = parent[p];
+        }
+        return p;
+    }
+    let union = (p,q) => {
+        let rootP = find(p);
+        let rootQ = find(q);
+        if(rootP == rootQ){
+            return;
+        }
+        if(rank[rootP] > rank[rootQ]){
+            parent[rootQ] = rootP;
+        }else if(rank[rootP] < rank[rootQ]){
+            parent[rootP] = rootQ;
+        }else{
+            parent[rootP] = rootQ;
+            rank[rootQ]++;
+        }
+        count--;
+    }
+
+    for(let i = 0;i < m;i++){
+        for(let j = 0;j < n;j++){
+            if(grid[i][j] == 1){
+                parent[i * n + j] = i * n + j;
+                count++;
+            }
+            rank[i * n + j] = 0;
+        }
+    }
+
+    for(var i = 0;i<m;i++){
+        for(var j = 0;j<n;j++){
+            if(grid[i][j] == 1){
+                grid[i][j] = 0;
+                i-1>=0 && grid[i-1][j] == 1 && union(i*n + j,(i-1)*n + j);
+                j-1>=0 && grid[i][j-1] == 1 && union(i*n + j,i*n + j-1);
+                i+1<m && grid[i+1][j] == 1 && union(i*n + j,(i+1)*n + j);
+                j+1<n && grid[i][j+1] == 1 && union(i*n + j,i*n + j+1);
+            }
+        }
+    }
+    return count;
+};
+```

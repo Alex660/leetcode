@@ -275,6 +275,8 @@ ___
       + 找到元素x所在的集合的代表
         + 路径压缩为优化手段
         + 可用于判断两个元素是否在同一个子集
++ 类似题型
+  + [200. 岛屿数量-解法三](https://leetcode-cn.com/problems/number-of-islands/solution/200-dao-yu-shu-liang-by-alexer-660/)
 ___
 #### 解法三：并查集森林 + 路径压缩
 ```javascript
