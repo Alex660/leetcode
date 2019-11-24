@@ -4,6 +4,10 @@
 ![截屏2019-11-07上午5.14.07.png](https://pic.leetcode-cn.com/88d8f46a8f86686da7eaa8b0ffccbf252163d1bca74a93e9c1476d1f153eba08-%E6%88%AA%E5%B1%8F2019-11-07%E4%B8%8A%E5%8D%885.14.07.png)
 # 题目地址
 <https://leetcode-cn.com/problems/word-ladder/description/>
+## 解法七：
+![截屏2019-11-23下午11.25.29.png](https://pic.leetcode-cn.com/8f7dc0d167d7aefff0dfc84a6682de19e10c42f6a7e4702c86af202d78bd0bf3-%E6%88%AA%E5%B1%8F2019-11-23%E4%B8%8B%E5%8D%8811.25.29.png)
+## 解法八：
+![截屏2019-11-23下午11.47.38.png](https://pic.leetcode-cn.com/fc08d2935a8464ba1ba4b74778a078f479baf5a77d13abc97b2e736162daf93c-%E6%88%AA%E5%B1%8F2019-11-23%E4%B8%8B%E5%8D%8811.47.38.png)
 #### 解法一：BFS
 + 时间复杂度：O(M * N) ,M为单词长度，,N为单词列表长度
 + 空间复杂度：O(M * N) ,M长度的单词化为邻接单词形式时需要M，N同上
@@ -272,6 +276,44 @@ var ladderLength = function(beginWord, endWord, wordList) {
 	return 0;
 };
 ```
++ 或者这样写也可
+```javascript
+/**
+* @param {string} beginWord
+* @param {string} endWord
+* @param {string[]} wordList
+* @return {number}
+*/
+var ladderLength = function(beginWord, endWord, wordList) {
+    let comboDicts = new Set(wordList);
+    if(!comboDicts.has(endWord)){
+        return 0;
+    }
+    let level = 0;
+    let queue = [[beginWord,1]];
+    while(queue.length != 0){
+        let currNode = queue.pop();
+        let currLeter = currNode[0];
+        level = currNode[1];
+        if(currNode[0] == endWord){
+            return level;
+        }
+        for(let i = 0;i < currLeter.length;i++){
+            for(r = 0;r < 26;r++){
+                let genTmp = String.fromCharCode(97+r);
+                if( genTmp != currLeter[i]){
+                    let str = currLeter.slice(0,i)+genTmp+currLeter.slice(i+1);
+                    if(comboDicts.has(str)){
+                        queue.unshift([str,level+1]);
+                        comboDicts.delete(str);
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}; 
+``` 
 #### 解法五：双端BFS升级版
 + 此解法时间复杂度比以上更低
   + 解法一和解法二共同的核心思想 
@@ -357,4 +399,174 @@ var ladderLength = function(beginWord, endWord, wordList) {
 	}
 	return 0;
 };
+```
+#### 解法六：双端BFS强化版
++ 其实是**解法四：BFS-2 第二种写法的另类版**
+  + 将queue换成set
++ Set 对象搜索、删除、插入时间复杂度为O(1)
++ beginSet、endSet各自向一边扩散
++ visited：节点是否已经访问过
++ BFS
+  + beginSet、endSet相当于两个queue
+  + 扩散过程中，优先选择小的set
+    + 交换set
+  + 因上面作了交换，每次只需从beginSet开始扩散即可
+  + 定义一个temp Set 
+    + 相当于向queue不断加入扩散中被选中的元素
+    + 因此一轮遍历完，直接将beginSet替换为temp即可
+      + 每次遍历到一个单词
+        + 遍历单词的每个字符，并尝试替换为与当前不相同的其余25个字符
+          + 如果从尾部扩散出的endSet有了新组合的单词
+            + 说明首尾相遇，直接返回当前level+1即可
+          + 否则，如果新组合单词未在访问备忘录visited中出现，且出现在单词库wordList中时
+            + 加入tempSet，用于下一轮扩散单词遍历组合操作
+            + 并且加入备忘录visited
+  + 继续下一轮queue temp set遍历
+```javascript
+/**
+ * @param {string} beginWord
+ * @param {string} endWord
+ * @param {string[]} wordList
+ * @return {number}
+ */
+let ladderLength = function(beginWord, endWord, wordList) {
+    let wordListSet = new Set(wordList);
+    if(!wordListSet.has(endWord)){
+        return 0;
+    }
+    let beginSet = new Set();
+    beginSet.add(beginWord);
+    let endSet = new Set();
+    endSet.add(endWord)
+    let visited = new Set();
+    let level = 1;
+    // BFS
+    while (beginSet.size > 0 && endSet.size > 0) {
+        if(beginSet.size > endSet.size){
+            let tmp = beginSet;
+            beginSet = endSet;
+            endSet = tmp;
+        }
+        let temp = new Set();
+        for(let key of beginSet){
+            for(let i = 0;i < key.length;i++){
+                for(let j = 0;j < 26;j++){
+                   let tmp = key.slice(0,i)+String.fromCharCode(97+j)+key.slice(i+1);
+                   if(endSet.has(tmp)){
+                       return level + 1;
+                   }
+                   if(!visited.has(tmp) && wordListSet.has(tmp)){
+                        temp.add(tmp);
+                        visited.add(tmp);
+                   }
+                }
+            }
+        }
+        beginSet = temp;
+        level++;
+    }
+    return 0;
+}
+```
+#### 解法七：双端BFS终极版
++ 将解法六的visited去掉，直接操作原数组
++ 并对部分变量命名作了语义化处理，更容易理解
++ **此解法是所有解法中最快的**
+```javascript
+/**
+ * @param {string} beginWord
+ * @param {string} endWord
+ * @param {string[]} wordList
+ * @return {number}
+ */
+let ladderLength = function(beginWord, endWord, wordList) {
+    let wordListSet = new Set(wordList);
+    if(!wordListSet.has(endWord)){
+        return 0;
+    }
+    let beginSet = new Set();
+    beginSet.add(beginWord);
+    let endSet = new Set();
+    endSet.add(endWord)
+    let level = 1;
+    // BFS
+    while (beginSet.size > 0) {
+        let next_beginSet = new Set();
+        for(let key of beginSet){
+            for(let i = 0;i < key.length;i++){
+                for(let j = 0;j < 26;j++){
+                   let s =  String.fromCharCode(97+j);
+                   if(s != key[i]){
+                        let new_word = key.slice(0,i)+s+key.slice(i+1);
+                        if(endSet.has(new_word)){
+                            return level + 1;
+                        }
+                        if(wordListSet.has(new_word)){
+                            next_beginSet.add(new_word);
+                            wordListSet.delete(new_word);
+                        }
+                   }
+                }
+            }
+        }
+        beginSet = next_beginSet;
+        level++;
+        if(beginSet.size > endSet.size){
+            let tmp = beginSet;
+            beginSet = endSet;
+            endSet = tmp;
+        }
+    }
+    return 0;
+}
+```
+#### 解法八：双端BFS灭世版
++ 解法七的交换操作去掉中间变量缓存，直接用ES6的交换语法糖
++ 所幸性能直接飙升，击败百分百。
++ ![截屏2019-11-23下午11.47.38.png](https://pic.leetcode-cn.com/fc08d2935a8464ba1ba4b74778a078f479baf5a77d13abc97b2e736162daf93c-%E6%88%AA%E5%B1%8F2019-11-23%E4%B8%8B%E5%8D%8811.47.38.png)
+```javascript
+/**
+ * @param {string} beginWord
+ * @param {string} endWord
+ * @param {string[]} wordList
+ * @return {number}
+ */
+let ladderLength = function(beginWord, endWord, wordList) {
+    let wordListSet = new Set(wordList);
+    if(!wordListSet.has(endWord)){
+        return 0;
+    }
+    let beginSet = new Set();
+    beginSet.add(beginWord);
+    let endSet = new Set();
+    endSet.add(endWord)
+    let level = 1;
+    // BFS
+    while (beginSet.size > 0) {
+        let next_beginSet = new Set();
+        for(let key of beginSet){
+            for(let i = 0;i < key.length;i++){
+                for(let j = 0;j < 26;j++){
+                   let s =  String.fromCharCode(97+j);
+                   if(s != key[i]){
+                        let new_word = key.slice(0,i)+s+key.slice(i+1);
+                        if(endSet.has(new_word)){
+                            return level + 1;
+                        }
+                        if(wordListSet.has(new_word)){
+                            next_beginSet.add(new_word);
+                            wordListSet.delete(new_word);
+                        }
+                   }
+                }
+            }
+        }
+        beginSet = next_beginSet;
+        level++;
+        if(beginSet.size > endSet.size){
+            [beginSet,endSet] = [endSet,beginSet]
+        }
+    }
+    return 0;
+}
 ```
