@@ -29,7 +29,7 @@ for(var i = 0;i<len;i++){
         var tmpStr = s.substring(i,r)
         if(isPalindrome(tmpStr) && tmpStr.length > max){
             ans = s.substring(i,r)
-            max = Math.max(max,tmpStr.length)
+            max = tmpStr.length;
         }
     }
 }

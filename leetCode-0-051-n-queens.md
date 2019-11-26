@@ -128,4 +128,29 @@ var solveNQueens = function(n) {
     };
     ```
 #### 解法二：对角线约束
-+ 待更
++ 同一对角线上的两个坐标，它们的横坐标之差等于纵坐标之差
+  + ![截屏2019-11-26下午2.16.10.png](https://pic.leetcode-cn.com/5da22c7121391469b8f77cb1fc4ec4e4b3df0123e665199a9dc6c518d5ed3597-%E6%88%AA%E5%B1%8F2019-11-26%E4%B8%8B%E5%8D%882.16.10.png)
+```javascript
+/**
+ * @param {number} n
+ * @return {string[][]}
+ */
+var solveNQueens = function (n) {
+    const result = [];
+    const dfs = ( subResult = [], row = 0) => {
+        if (row === n) {
+            result.push(subResult.map(c => '.'.repeat(c) + 'Q' + '.'.repeat(n - c - 1)));
+            return;
+        }
+        for (let col = 0; col < n; col++) {
+            if (!subResult.some((j, k) => j === col || j - col === row - k || j - col === k - row)) {
+                subResult.push(col);
+                dfs( subResult, row + 1);
+                subResult.pop();
+            }
+        }
+    }
+    dfs();
+    return result;
+};
+```
