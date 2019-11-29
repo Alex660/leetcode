@@ -23,7 +23,9 @@ var isAnagram = function(s, t) {
     return sSort.join('') == tSort.join('');
 };
 ```
-#### 解法二：哈希表
+#### 解法二：计数排序 + 哈希表
++ 类似题型
+  + [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/solution/1122-shu-zu-de-xiang-dui-pai-xu-by-alexer-660/)
 + 时间复杂度 O(n)
 + 空间复杂度 O(1)  O(26)==O(1) 表大小不变复杂性不变
 + 分别对其中一个单词每个字母出现的字符次数进行增加

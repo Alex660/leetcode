@@ -76,7 +76,8 @@ var hammingWeight = function(n) {
 var hammingWeight = function(n) {
     let count = 0;
     while(n){
-        if(n % 2 == 1){
+        // n % 2 == 1
+        if(n & 1 == 1){
             count++;
         }
         n >>>= 1;
