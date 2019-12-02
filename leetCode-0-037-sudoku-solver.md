@@ -3,7 +3,7 @@
 ![截屏2019-11-23上午10.47.52.png](https://pic.leetcode-cn.com/6b48364381c567f84217d5037adec293887abdb6c0c20bfe6f39398d3b6aed13-%E6%88%AA%E5%B1%8F2019-11-23%E4%B8%8A%E5%8D%8810.47.52.png)
 ![截屏2019-11-23上午10.48.01.png](https://pic.leetcode-cn.com/43b9b7b811eb24ab98fc8cb49135b17cbe6d0140f6850d2e199682db124b480f-%E6%88%AA%E5%B1%8F2019-11-23%E4%B8%8A%E5%8D%8810.48.01.png)
 # 题目地址
-<https://leetcodea-cn.com/problems/sudoku-solver/submissions/>
+<https://leetcode-cn.com/problems/sudoku-solver/>
 #### 解法一：递归回溯
 + 类似题型
   + [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/solution/36-you-xiao-de-shu-du-by-alexer-660/)
