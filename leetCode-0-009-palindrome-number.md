@@ -20,12 +20,19 @@ var isPalindrome = function(x) {
 ```
 #### 解法二：中心扩展法
 ```javascript
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
 var isPalindrome = function(x) {
-    var middle = parseInt(x.length/2)
-    var left = middle-1,right = middle+1;
-    while(left>=0 && right<x.length){
-        if(x[left] != x[right]){
-        return false;
+    let str = x.toString();
+    let n = str.length;
+    let mid = n >> 1;
+    let left = mid-1;
+    let right = (n & 1) == 0 ? mid : mid + 1;
+    while(left>=0 && right<n){
+        if(str[left] != str[right]){
+            return false;
         }
         left--;
         right++;
@@ -50,4 +57,23 @@ var isPalindrome = function(x) {
     }
     return x == reverseNumber || x == parseInt(reverseNumber/10)
 };
+```
+#### 解法四：双指针夹逼法
+```javascript
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    let str = x.toString();
+    let n = str.length;
+    let left = 0;
+    let right = n-1;
+    while(left < right){
+        if(str[left++] != str[right--]){
+            return false;
+        }
+    }
+    return true;
+}
 ```

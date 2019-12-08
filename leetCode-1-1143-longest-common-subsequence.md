@@ -66,21 +66,18 @@
  * @return {number}
  */
 var longestCommonSubsequence = function(text1, text2) {
-    let row = text1.length;
-    let col = text2.length;
-    let dp = new Array(row+1).fill(0);
-    for(let i = 0;i <= row; i++){
-        dp[i] = new Array(col+1).fill(0);
-    }
-    for(let i = 1;i < row + 1;i++){
-        for(let r = 1;r < col + 1;r++){
-            if(text1[i-1] == text2[r-1]){
-                dp[i][r] = dp[i-1][r-1] + 1;
+    let n = text1.length;
+    let m = text2.length;
+    let dp = Array.from(new Array(n+1),() => new Array(m+1).fill(0));
+    for(let i = 1;i <= n;i++){
+        for(let j = 1;j <= m;j++){
+            if(text1[i-1] == text2[j-1]){
+                dp[i][j] = dp[i-1][j-1] + 1;
             }else{
-                dp[i][r] = Math.max(dp[i-1][r],dp[i][r-1]);
+                dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]);
             }
         }
     }
-    return dp[row][col];
+    return dp[n][m];
 };
 ```
