@@ -78,7 +78,7 @@ var reverseList = function(head) {
       + 此处将原 head 指向head.next的指针断开
   + 递归
     + 由编译器函数调用执行栈原理可知
-      + **最小调用的函数会在递归过程中最后被执行，而最后调用的会最小执行**
+      + **最先调用的函数会在递归过程中最后被执行，而最后调用的会最先执行**
     + 因此此题，**最先返回最后两个节点开始反转操作**
       + 依次从后面两两节点开始反转
 + 图解
@@ -101,9 +101,9 @@ var reverseList = function(head) {
     // 存储当前节点的下一个节点
     let next = head.next;
     let reverseHead = reverseList(next);
-    // 断开 head ，如果闪电⚡️标记处
+    // 断开 head ，如图闪电⚡️标记处
     head.next = null;
-    // 反转，后一个节点执行当前节点
+    // 反转，后一个节点连接当前节点
     next.next = head;
     return reverseHead;
 };
