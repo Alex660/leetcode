@@ -1,3 +1,1 @@
-// 逻辑顺序刷题
-// 配合知识点一起学习更佳 戳看
-`https://github.com/Alex660/Algorithms-and-data-structures/tree/master/theoreticalKnowledge`
+// 回首向来萧瑟处，也无风雨也无晴。
