@@ -1,8 +1,8 @@
-# 二叉树的前序遍历(中等)
+#  二叉树的后序遍历（困难）
 # 题目描述
-![截屏2019-10-22下午3.49.54.png](https://pic.leetcode-cn.com/d835a9ee7508351968b3e378b78a2a18114ef1ffcf234715ef4fefbfd96a06ae-%E6%88%AA%E5%B1%8F2019-10-22%E4%B8%8B%E5%8D%883.49.54.png)
+![截屏2019-10-23上午6.01.01.png](https://pic.leetcode-cn.com/1b754f228e4c079b2a98d987399d4d161458d50d1982c610dd4d16d9f181d40b-%E6%88%AA%E5%B1%8F2019-10-23%E4%B8%8A%E5%8D%886.01.01.png)
 # 题目地址
-<https://leetcode-cn.com/problems/binary-tree-preorder-traversal/>
+<https://leetcode-cn.com/problems/binary-tree-postorder-traversal/>
 # 定义
 + 前序
   + 根-左-右
