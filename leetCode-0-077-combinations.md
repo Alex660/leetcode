@@ -3,6 +3,14 @@
 ![截屏2019-10-27上午7.23.21.png](https://pic.leetcode-cn.com/2ea572742904dfe9e0d7d7c2f0808afb6e4e3c66d31da62f94f166e5beba6683-%E6%88%AA%E5%B1%8F2019-10-27%E4%B8%8A%E5%8D%887.23.21.png)
 # 题目地址
 <https://leetcode-cn.com/problems/combinations/>
+#### 回溯算法系列
++ [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/solution/39-zu-he-zong-he-by-alexer-660/)
++ [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/solution/40-zu-he-zong-he-ii-by-alexer-660/)
++ [46. 全排列](https://leetcode-cn.com/problems/permutations/solution/46-quan-pai-lie-by-alexer-660/)
++ [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/solution/47-quan-pai-lie-ii-by-alexer-660/)
++ [77. 组合](https://leetcode-cn.com/problems/combinations/solution/77-zu-he-by-alexer-660/)
++ [78. 子集](https://leetcode-cn.com/problems/subsets/solution/78-zi-ji-by-alexer-660/)
++ [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/solution/90-zi-ji-ii-by-alexer-660/)
 #### 解法一：递归回溯
 + 从{1,2,3,...,n}中选择k个数，输出所有组合
   + 先选择一个数字作为临时组合，
