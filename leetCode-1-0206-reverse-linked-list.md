@@ -3,6 +3,8 @@
 ![截屏2019-12-19上午9.32.38.png](https://pic.leetcode-cn.com/5e216425adb16842467328f214068d61f84fea1b74429625d38cfd750c67bee7-%E6%88%AA%E5%B1%8F2019-12-19%E4%B8%8A%E5%8D%889.32.38.png)
 # 题目地址
 <https://leetcode-cn.com/problems/reverse-linked-list/>
+## 链表
++ [参看链表各种操作大全](https://github.com/Alex660/Algorithms-and-data-structures/blob/master/algo/%E9%93%BE%E8%A1%A8_linkedList.md)
 #### 解法一：迭代
 + 时间复杂度：O(n)
 + 空间复杂度：O(1)
