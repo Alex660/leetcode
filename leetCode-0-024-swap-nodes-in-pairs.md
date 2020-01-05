@@ -3,6 +3,8 @@
 ![截屏2019-12-18上午9.46.28.png](https://pic.leetcode-cn.com/027bbdec30c32d0e88c160a52f615303c72a2ce5f0d0b3976ffa682937e37717-%E6%88%AA%E5%B1%8F2019-12-18%E4%B8%8A%E5%8D%889.46.28.png)
 # 题目地址
 <https://leetcode-cn.com/problems/swap-nodes-in-pairs/>
+## 链表
++ [参看链表各种操作大全](https://github.com/Alex660/Algorithms-and-data-structures/blob/master/algo/%E9%93%BE%E8%A1%A8_linkedList.md)
 #### 解法一：非递归
 + 时间复杂度：O(n)
 + 空间复杂度：O(1)

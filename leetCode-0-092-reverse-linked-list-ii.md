@@ -3,6 +3,8 @@
 ![截屏2019-12-20上午9.58.20.png](https://pic.leetcode-cn.com/933b9ce4f17e40fd63b82aa502ffefd308e9e3c5d4ada17a2881efc786e2dac8-%E6%88%AA%E5%B1%8F2019-12-20%E4%B8%8A%E5%8D%889.58.20.png)
 # 题目地址
 <https://leetcode-cn.com/problems/reverse-linked-list-ii/>
+## 链表
++ [参看链表各种操作大全](https://github.com/Alex660/Algorithms-and-data-structures/blob/master/algo/%E9%93%BE%E8%A1%A8_linkedList.md)
 #### 解法一：迭代
 + 类似题型
   + [206. 反转链表 - 解法一](https://leetcode-cn.com/problems/reverse-linked-list/solution/206-fan-zhuan-lian-biao-by-alexer-660/)
