@@ -4,6 +4,8 @@
 ![截屏2019-12-30下午7.05.33.png](https://pic.leetcode-cn.com/ba29fc198b1867c7a48b0c9ab5d9f5b93237d9fef91ceb6a746e458d60b27c5e-%E6%88%AA%E5%B1%8F2019-12-30%E4%B8%8B%E5%8D%887.05.33.png)
 # 题目地址
 <https://leetcode-cn.com/problems/linked-list-cycle/>
+## 链表
++ [参看链表各种操作大全](https://github.com/Alex660/Algorithms-and-data-structures/blob/master/algo/%E9%93%BE%E8%A1%A8_linkedList.md)
 #### 解法一：数组判重
 + 环中两个节点相遇，说明在不同的时空内会存在相遇的那一刻，过去与未来相遇，自己和前世回眸，即是重复
 ```javascript
