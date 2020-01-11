@@ -34,6 +34,11 @@ var intersection = function(nums1, nums2) {
 };
 ```
 #### 解法三：哈希
++ 如果 nums1 的大小比 nums2 小很多，此种方法更优
++ 时间复杂度：O(n + m)
+  + n,m代表数组大小
++ 空间复杂度：O(min(n,m))
+  + 对较小的数组进行哈希映射使用的空间
 ```javascript
 /**
  * @param {number[]} nums1
@@ -41,6 +46,7 @@ var intersection = function(nums1, nums2) {
  * @return {number[]}
  */
 var intersection = function(nums1, nums2) {
+    if(nums1.length > nums2.length) [nums1,nums2] = [nums2,nums1];
     let hash = new Set(nums1);
     let res = new Set();
     for(let i = 0;i < nums2.length;i++){
@@ -113,5 +119,16 @@ var intersection = function(nums1, nums2) {
         }
     }
     return [...res];
+};
+```
+#### 解法六：库函数 + ES6
+```javascript
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+    return [...new Set([...new Set(nums1)].filter(x => new Set(nums2).has(x)))];
 };
 ```
