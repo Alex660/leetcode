@@ -7,7 +7,7 @@
 + 思路
   + 如果word1[i]和word2[j]匹配
     + 则i++，j++继续比较下一个字符，无需替换、插入和删除操作
-  + 如过word1[i]和word2[j]不匹配
+  + 如果word1[i]和word2[j]不匹配
     + 1、删除word1[i]
       + 然后递归考察word1[i+1]和word2[j]
     + 2、删除word2[j]
