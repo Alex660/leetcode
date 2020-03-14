@@ -29,6 +29,29 @@
  * @return {TreeNode}
  */
 var buildTree = function(preorder, inorder) {
+    if(!inorder.length) return null
+    let tmp = preorder[0],mid = inorder.indexOf(tmp)
+    let root = new TreeNode(tmp)
+    root.left = buildTree(preorder.slice(1,mid+1),inorder.slice(0,mid))
+    root.right = buildTree(preorder.slice(mid+1),inorder.slice(mid + 1))
+    return root
+};
+```
+#### 解法二：递归简便版
+```javascript
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function(preorder, inorder) {
     let build = (inorder) => {
         if(!inorder || !inorder.length) return null
         let tmp = preorder.shift(),mid = inorder.indexOf(tmp)
@@ -40,7 +63,7 @@ var buildTree = function(preorder, inorder) {
     return build(inorder)
 };
 ```
-#### 参考解法
+#### 解法三：参考解法
 ```javascript
 /**
  * Definition for a binary tree node.
